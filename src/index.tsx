@@ -103,6 +103,11 @@ export default function Command() {
           style: Toast.Style.Success,
           title: "Uploaded successfully.",
         });
+      } else {
+        showToast({
+          style: Toast.Style.Failure,
+          title: "Upload failed.",
+        });
       }
       setRes(res);
       setLoaded(true);
