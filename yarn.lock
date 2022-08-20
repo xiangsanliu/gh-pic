@@ -144,10 +144,10 @@
   dependencies:
     "@octokit/openapi-types" "^13.1.0"
 
-"@raycast/api@^1.39.0":
-  "integrity" "sha512-DHX24clsIrpGq2lfjd+vh3CPQBPVHDnPIBGC/BaOmy+V1a20OEZhyM1PUiLXr0gAYRaMpKejPCVL8Jh+PyWCsQ=="
-  "resolved" "https://registry.npmmirror.com/@raycast/api/-/api-1.39.0.tgz"
-  "version" "1.39.0"
+"@raycast/api@^1.39.1":
+  "integrity" "sha512-YvQr3DWE6bGVxgqWBrnF/0NtY5cUSeOc3W1S1fkgA5j6xu7gBZfHOwTPbmsoINnnPuxR/nW/DSE14e5arjQJzg=="
+  "resolved" "https://registry.npmmirror.com/@raycast/api/-/api-1.39.1.tgz"
+  "version" "1.39.1"
   dependencies:
     "@types/node" "16.10.3"
     "@types/react" "18.0.9"
