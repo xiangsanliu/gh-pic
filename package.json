@@ -3,7 +3,7 @@
   "name": "ghpic",
   "title": "GHPic",
   "description": "A simple extension of raycast to upload images to GitHub from clipboard.",
-  "icon": "command-icon.png",
+  "icon": "ghpic-icon.png",
   "author": "xiangsanliu",
   "categories": [
     "Productivity"
@@ -11,21 +11,13 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "ghpic",
-      "title": "GHPic",
+      "name": "index",
+      "title": "Upload Image to Github",
       "description": "Upload images to GitHub from clipboard",
       "mode": "view"
     }
   ],
   "preferences": [
-    {
-      "name": "pngpastePath",
-      "title": "Full Path to pngpaste",
-      "type": "textfield",
-      "required": false,
-      "description": "Full Path to pngpaste",
-      "placeholder": "/opt/homebrew/bin/pngpaste"
-    },
     {
       "name": "githubToken",
       "title": "Github Token",
@@ -53,7 +45,8 @@
       "type": "textfield",
       "required": false,
       "description": "Username to display in commit message.",
-      "placeholder": "Default valule is same to Repo Owner."
+      "placeholder": "Default valule is same to Repo Owner.",
+      "default": ""
     },
     {
       "name": "email",
@@ -66,8 +59,17 @@
       "name": "path",
       "title": "Path of Repo",
       "type": "textfield",
-      "required": false,
-      "description": "Path to store pictures in repo."
+      "required": true,
+      "description": "Path to store pictures in repo.",
+      "default": "GHPic"
+    },
+    {
+      "name": "pngpastePath",
+      "title": "Full Path to pngpaste",
+      "type": "textfield",
+      "required": true,
+      "description": "Full Path to pngpaste",
+      "default": "/opt/homebrew/bin/pngpaste"
     }
   ],
   "dependencies": {

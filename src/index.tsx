@@ -1,13 +1,12 @@
 import { List, ActionPanel, Action, getPreferenceValues, Icon } from "@raycast/api";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Octokit } from "@octokit/core";
 import { RequestError } from "@octokit/request-error";
 import * as fs from 'fs';
 import dayjs from "dayjs";
 import { execaSync } from "execa";
 
-const DEFAULT_PNGPASTE_PATH = "/opt/homebrew/bin/pngpaste";
-const TEMP_PIC_PATH = "/tmp/GHPicTemp.jpgimage.png";
+const TEMP_PIC_PATH = "/tmp/GHPicTemp.jpg";
 
 interface Preferences {
   githubToken: string;
@@ -15,7 +14,8 @@ interface Preferences {
   repo: string;
   path: string;
   email: string;
-  pngPastePath: string;
+  pngpastePath: string;
+  committer: string;
 }
 
 const preferences = getPreferenceValues<Preferences>();
@@ -41,15 +41,15 @@ async function uploadPic() {
     errorMsg: "success",
     picUrl: "",
     icon: Icon.CircleProgress100,
-    helpUrl: "https://github.com/xiangsanliu/GHPicimage"
+    helpUrl: "https://github.com/xiangsanliu/GHPic"
   };
   try {
     // Paste pic from clipboard to Temp folder.
-    execaSync(preferences.pngPastePath, [TEMP_PIC_PATH]);
+    execaSync(preferences.pngpastePath, [TEMP_PIC_PATH]);
 
     const pic = fs.readFileSync(TEMP_PIC_PATH);
     const content = Buffer.from(pic).toString('base64');
-    const path = `${preferences.path}/${dayjs().format('YYYY-MM-DDTHH:mm:ss')}.jpg`
+    const path = `${preferences.path}${dayjs().format('YYYY-MM-DDTHH:mm:ss')}.jpg`
 
     // Upload pic to github.
     await octokit.request('PUT /repos/{owner}/{repo}/contents/{path}', {
@@ -58,7 +58,7 @@ async function uploadPic() {
       path: path,
       message: 'Upload by GHPic.',
       committer: {
-        name: preferences.owner,
+        name: preferences.committer,
         email: preferences.email
       },
       content: content
@@ -87,30 +87,31 @@ export default function Command() {
     helpUrl: "https://github.com/xiangsanliu/GHPic"
   });
   const [loaded, setLoaded] = useState(false);
-  if (preferences.path == undefined) {
-    preferences.path = "";
-  } else if (preferences.path.endsWith("/")) {
-    preferences.path = preferences.path.substring(0, preferences.path.length - 1);
+  if (preferences.path.length > 0 && !preferences.path.endsWith("/")) {
+    preferences.path += "/";
   } else if (preferences.path.startsWith("/")) {
     preferences.path = preferences.path.substring(1);
   }
-  if (preferences.pngPastePath == undefined) {
-    preferences.pngPastePath = DEFAULT_PNGPASTE_PATH;
+  if (preferences.committer == "") {
+    preferences.committer = preferences.owner;
   }
-  uploadPic().then(res => {
-    setRes(res);
-    setLoaded(true);
-  })
+  useEffect(() => {
+    uploadPic().then(res => {
+      setRes(res);
+      setLoaded(true);
+    })
+  }, []);
+
   return (
     <List isLoading={loaded}>
       {res.errorCode == 0 ? (
         <>
-          <List.Item title={'MarkDown'} actions={
+          <List.Item title={'Copy MarkDown Sytle.'} actions={
             <ActionPanel>
               <Action.CopyToClipboard content={`![](${res.picUrl})`} />
             </ActionPanel>
           } />
-          <List.Item title={'URL'} actions={
+          <List.Item title={'Copy simple URL.'} actions={
             <ActionPanel>
               <Action.CopyToClipboard content={res.picUrl} />
             </ActionPanel>
