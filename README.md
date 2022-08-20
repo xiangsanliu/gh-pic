@@ -39,6 +39,10 @@ brew install pngpaste
 
 ### 4. Demo
 
+https://user-images.githubusercontent.com/19505695/185735238-b0260061-c1f9-45e8-a27c-a953b4b96bcb.mov
+
+
+
 ### 5. Thanks
 
 - Inspired By [aliyun-oss](https://github.com/raycast/extensions/blob/78b7c11594/extensions/aliyun-oss/README.md)
