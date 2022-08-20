@@ -7,6 +7,7 @@ import dayjs from "dayjs";
 import { execaSync } from "execa";
 
 const TEMP_PIC_PATH = "/tmp/GHPicTemp.jpg";
+const REPO_URL = "https://github.com/xiangsanliu/gh-pic";
 
 interface Preferences {
   githubToken: string;
@@ -41,7 +42,7 @@ async function uploadPic() {
     errorMsg: "success",
     picUrl: "",
     icon: Icon.CircleProgress100,
-    helpUrl: "https://github.com/xiangsanliu/GHPic"
+    helpUrl: REPO_URL
   };
   try {
     // Paste pic from clipboard to Temp folder.
@@ -84,7 +85,7 @@ export default function Command() {
     errorMsg: "Uploading...",
     picUrl: "",
     icon: Icon.CircleProgress50,
-    helpUrl: "https://github.com/xiangsanliu/GHPic"
+    helpUrl: REPO_URL
   });
   const [loaded, setLoaded] = useState(false);
   if (preferences.path.length > 0 && !preferences.path.endsWith("/")) {

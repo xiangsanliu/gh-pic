@@ -1,6 +1,6 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "ghpic",
+  "name": "gh-pic",
   "title": "GHPic",
   "description": "A simple extension of raycast to upload images to GitHub from clipboard.",
   "icon": "ghpic-icon.png",
@@ -61,7 +61,7 @@
       "type": "textfield",
       "required": true,
       "description": "Path to store pictures in repo.",
-      "default": "GHPic"
+      "default": "gh-pic"
     },
     {
       "name": "pngpastePath",
