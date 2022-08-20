@@ -76,9 +76,7 @@
     "@octokit/core": "^4.0.5",
     "@raycast/api": "^1.39.0",
     "dayjs": "^1.11.5",
-    "execa": "^6.1.0",
-    "install": "^0.13.0",
-    "npm": "^8.18.0"
+    "execa": "^6.1.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.0.0",
