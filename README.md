@@ -37,13 +37,26 @@ brew install pngpaste
 - `Email`: The email of the user.
 - `Path`: The path to store the image on GitHub.
 
-### 4. Demo
+## Usage
 
-https://user-images.githubusercontent.com/19505695/185735238-b0260061-c1f9-45e8-a27c-a953b4b96bcb.mov
+1. Copy a Picture to the clipboard.
+2. Upload to GitHub by this extension.
+3. Paste the URL to your article.
+
+> **Note: Due to API restrictions, if you want to upload from a picture file, you need to open the file first and then copy it, instead of copying the file directly in `Finder`.**
+
+## Demo
+
+### Upload from screenshot
+
+https://user-images.githubusercontent.com/19505695/186912886-ca5c45cf-fec6-4545-a162-86f025a37030.mov
+
+### Upload from file
+
+https://user-images.githubusercontent.com/19505695/187009128-9fdabc42-11e4-4ab0-a646-3e69c6f5c037.mov
 
 
-
-### 5. Thanks
+## Thanks
 
 - Inspired By [aliyun-oss](https://github.com/raycast/extensions/blob/78b7c11594/extensions/aliyun-oss/README.md)
 
