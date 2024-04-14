@@ -71,6 +71,7 @@ async function uploadPic() {
     } else {
       res.errorCode = 3;
       res.errorMsg = "Check whether the clipboard contains a picture, press Enter for help.";
+      res.helpUrl = `${REPO_URL}#usage`;
     }
   } catch (error) {
     res.icon = Icon.Multiply;
