@@ -2,9 +2,5 @@
 
 # dependencies
 /node_modules
-.idea
 # misc
 .DS_Store
-.package-lock.json
-.raycast-env.d.ts
-yarn.lock

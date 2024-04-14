@@ -73,7 +73,7 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.69.0",
+    "@raycast/api": "^1.39.1",
     "@octokit/core": "^4.0.5",
     "dayjs": "^1.11.5",
     "execa": "^6.1.0"
@@ -91,6 +91,6 @@
     "dev": "ray develop",
     "fix-lint": "ray lint --fix",
     "lint": "ray lint",
-    "publish": "npx @raycast/api@latest publish"
+    "publish": "ray publish"
   }
 }
