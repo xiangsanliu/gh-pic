@@ -45,7 +45,6 @@ async function uploadPic() {
     helpUrl: REPO_URL,
   };
   try {
-
     const text = await Clipboard.readText();
     if (text) {
       // Paste pic from clipboard to Temp folder.
