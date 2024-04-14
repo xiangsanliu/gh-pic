@@ -1,9 +1,9 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "ghpic",
+  "name": "gh-pic",
   "title": "GHPic",
-  "description": "A simple extension of raycast to upload images to GitHub from clipboard.",
-  "icon": "command-icon.png",
+  "description": "A simple extension of Raycast to upload images to GitHub from clipboard.",
+  "icon": "ghpic-icon.png",
   "author": "xiangsanliu",
   "categories": [
     "Productivity"
@@ -11,21 +11,13 @@
   "license": "MIT",
   "commands": [
     {
-      "name": "ghpic",
-      "title": "GHPic",
+      "name": "index",
+      "title": "Upload Image to Github",
       "description": "Upload images to GitHub from clipboard",
       "mode": "view"
     }
   ],
   "preferences": [
-    {
-      "name": "pngpastePath",
-      "title": "Full Path to pngpaste",
-      "type": "textfield",
-      "required": false,
-      "description": "Full Path to pngpaste",
-      "placeholder": "/opt/homebrew/bin/pngpaste"
-    },
     {
       "name": "githubToken",
       "title": "Github Token",
@@ -53,7 +45,8 @@
       "type": "textfield",
       "required": false,
       "description": "Username to display in commit message.",
-      "placeholder": "Default valule is same to Repo Owner."
+      "placeholder": "Default valule is same to Repo Owner.",
+      "default": ""
     },
     {
       "name": "email",
@@ -66,17 +59,24 @@
       "name": "path",
       "title": "Path of Repo",
       "type": "textfield",
-      "required": false,
-      "description": "Path to store pictures in repo."
+      "required": true,
+      "description": "Path to store pictures in repo.",
+      "default": "gh-pic"
+    },
+    {
+      "name": "pngpastePath",
+      "title": "Full Path to pngpaste",
+      "type": "textfield",
+      "required": true,
+      "description": "Full Path to pngpaste",
+      "default": "/opt/homebrew/bin/pngpaste"
     }
   ],
   "dependencies": {
+    "@raycast/api": "^1.39.1",
     "@octokit/core": "^4.0.5",
-    "@raycast/api": "^1.39.0",
     "dayjs": "^1.11.5",
-    "execa": "^6.1.0",
-    "install": "^0.13.0",
-    "npm": "^8.18.0"
+    "execa": "^6.1.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.0.0",
