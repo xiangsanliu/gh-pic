@@ -4,3 +4,6 @@
 /node_modules
 # misc
 .DS_Store
+.package-lock.json
+.raycast-env.d.ts
+yarn.lock
