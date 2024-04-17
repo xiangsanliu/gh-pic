@@ -75,7 +75,6 @@ async function uploadPic() {
       res.errorCode = 2;
       res.errorMsg = "Paste image from clipboard failed, press Enter for help.";
     }
-    console.log(error);
   }
   return res;
 }
@@ -85,7 +84,6 @@ async function getPicFromClipboard() {
   const file = data.file;
   if (file) {
     let filepath = decodeURIComponent(file.substring(7));
-    console.log(filepath)
     const buffer = fs.readFileSync(filepath);
     const type = await fileType.fileTypeFromBuffer(buffer);
 
@@ -96,10 +94,8 @@ async function getPicFromClipboard() {
         buffer: buffer,
       };
     }
-    return null
-  } else {
-    return null;
   }
+  return null;
 }
 
 export default function Command() {
