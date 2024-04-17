@@ -19,9 +19,7 @@ type ExtensionPreferences = {
   /** Email - Email of committer. */
   "email": string,
   /** Path of Repo - Path to store pictures in repo. */
-  "path": string,
-  /** Full Path to pngpaste - Full Path to pngpaste */
-  "pngpastePath": string
+  "path": string
 }
 
 /** Preferences accessible in all the extension's commands */
